@@ -1,5 +1,4 @@
-module github.com/cseeger-epages/confluence-go-api
-
+module github.com/biome-search/confluence-go-api
 go 1.13
 
 require (
