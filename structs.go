@@ -3,6 +3,8 @@ package goconfluence
 import (
 	"net/http"
 	"net/url"
+
+	"golang.org/x/oauth2"
 )
 
 // API is the main api data structure
@@ -10,6 +12,7 @@ type API struct {
 	endPoint        *url.URL
 	client          *http.Client
 	username, token string
+	tokenSource     oauth2.TokenSource
 }
 
 // Results array

@@ -16,7 +16,7 @@ func (a *API) getContentIDEndpoint(id string) (*url.URL, error) {
 
 // getContentEndpoint creates the correct api endpoint
 func (a *API) getContentEndpoint() (*url.URL, error) {
-	return url.ParseRequestURI(a.endPoint.String() + "/content/")
+	return url.ParseRequestURI(a.endPoint.String() + "/content")
 }
 
 // getContentChildEndpoint creates the correct api endpoint by given id and type

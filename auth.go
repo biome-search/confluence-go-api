@@ -6,5 +6,7 @@ import (
 
 // Auth implements basic auth
 func (a *API) Auth(req *http.Request) {
-	req.SetBasicAuth(a.username, a.token)
+	tok, _ := a.tokenSource.Token()
+
+	tok.SetAuthHeader(req)
 }

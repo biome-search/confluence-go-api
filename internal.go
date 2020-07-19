@@ -6,6 +6,8 @@ import (
 	"fmt"
 	"net/http"
 	"net/url"
+
+	"golang.org/x/oauth2"
 )
 
 // NewAPI implements API constructor
@@ -34,9 +36,24 @@ func NewAPI(location string, username string, token string) (*API, error) {
 	return a, nil
 }
 
+func NewAPIWithTokenSource(location string, source oauth2.TokenSource) (*API, error) {
+	u, err := url.ParseRequestURI(location)
+
+	if err != nil {
+		return nil, err
+	}
+
+	return &API{
+		endPoint:    u,
+		tokenSource: source,
+		client:      &http.Client{},
+	}, nil
+
+}
+
 // NewAPIWithClient creates a new API instance using an existing HTTP client.
 // Useful when using oauth or other authentication methods.
-func NewAPIWithClient(location string, client *http.Client)  (*API, error) {
+func NewAPIWithClient(location string, client *http.Client) (*API, error) {
 	u, err := url.ParseRequestURI(location)
 
 	if err != nil {
