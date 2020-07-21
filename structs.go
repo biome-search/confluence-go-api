@@ -36,6 +36,7 @@ type Content struct {
 	Body      Body       `json:"body"`
 	Version   Version    `json:"version"`
 	Space     Space      `json:"space"`
+	Links     LinkSet    `json:"_links"`
 }
 
 // Ancestor defines ancestors to create sub pages
@@ -191,4 +192,9 @@ type AllSpacesQuery struct {
 	Start            int    // page start
 	Status           string // current, archived
 	Type             string // global, personal
+}
+
+type LinkSet struct {
+	Self       string `json:"self"`
+	WebPartial string `json:"webui"`
 }
