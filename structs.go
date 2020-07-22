@@ -36,6 +36,8 @@ type Content struct {
 	Body      Body       `json:"body"`
 	Version   Version    `json:"version"`
 	Space     Space      `json:"space"`
+	Container Container  `json:"container"`
+	History   History    `json:"history"`
 	Links     LinkSet    `json:"_links"`
 }
 
@@ -197,4 +199,8 @@ type AllSpacesQuery struct {
 type LinkSet struct {
 	Self       string `json:"self"`
 	WebPartial string `json:"webui"`
+}
+
+type Container struct {
+	Name string `json:"name"`
 }
